@@ -1,7 +1,9 @@
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 import { prisma } from '../prisma/client'
 
 const SALT_ROUNDS = 12
+const JWT_SECRET = process.env.JWT_SECRET!
 
 export async function registerUser(email: string, password: string) {
   const existing = await prisma.user.findUnique({ where: { email: email.toLowerCase().trim() } })
@@ -25,15 +27,17 @@ export async function loginUser(email: string, password: string) {
     where: { email: email.toLowerCase().trim() },
   })
 
-  // Same error regardless of whether email or password is wrong
   if (!user) throw new Error('Invalid credentials')
-
-  // Block soft-deleted users
-  if (user.deletedAt) throw new Error('Invalid credentials')
 
   const isValid = await bcrypt.compare(password, user.password)
   if (!isValid) throw new Error('Invalid credentials')
 
+  const token = jwt.sign(
+    { userId: user.id, email: user.email, role: user.role },
+    JWT_SECRET,
+    { expiresIn: '7d' }
+  )
+
   const { password: _, ...safeUser } = user
-  return safeUser
+  return { user: safeUser, token }
 }
