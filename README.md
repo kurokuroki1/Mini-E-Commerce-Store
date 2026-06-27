@@ -1,6 +1,6 @@
 # Mini E-Commerce Store
 
-A full-stack e-commerce platform built with the Next.js App Router. Users can browse products, manage a cart, and check out through Stripe. Admins manage inventory and review orders from a role-protected dashboard. Authentication uses JWT access tokens with rotating refresh tokens, and security-sensitive actions are recorded via audit logs and login-attempt tracking.
+A full-stack e-commerce platform built with the Next.js App Router. Users can browse products, manage a cart, and check out through Stripe(still working). Admins manage inventory and review orders from a role-protected dashboard. Authentication uses JWT access tokens with rotating refresh tokens, and security-sensitive actions are recorded via audit logs and login-attempt tracking.
 
 ## Features
 
@@ -54,10 +54,7 @@ DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public"
 JWT_ACCESS_SECRET="your-access-token-secret"
 JWT_REFRESH_SECRET="your-refresh-token-secret"
 
-# Stripe
-STRIPE_SECRET_KEY="sk_test_..."
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_test_..."
-```
+
 
 > Adjust the variable names to match your code if they differ. At minimum you need a `DATABASE_URL`, JWT secret(s), and Stripe keys.
 
