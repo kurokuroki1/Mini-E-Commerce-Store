@@ -1,4 +1,4 @@
-# Mini E-Commerce Store
+# Mini E-Commerce Store (WIP)
 
 A full-stack e-commerce platform built with the Next.js App Router. Users can browse products, manage a cart, and check out through Stripe. Admins manage inventory and review orders from a role-protected dashboard. Authentication uses JWT access tokens with rotating refresh tokens, and security-sensitive actions are recorded via audit logs and login-attempt tracking.
 
