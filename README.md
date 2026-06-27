@@ -6,7 +6,7 @@ A full-stack e-commerce platform built with the Next.js App Router. Users can br
 
 - **Product catalogue** — browse products with images, descriptions, pricing, and live stock levels
 - **Cart** — client-side cart state managed with Zustand
-- **Stripe checkout** — complete purchases through Stripe; orders store the Stripe payment ID
+- **Stripe checkout** — complete purchases through Stripe; orders store the Stripe payment ID (Not Working)
 - **Authentication** — email/password auth with bcrypt-hashed passwords, JWT access tokens, and rotating refresh tokens
 - **Role-based access** — `USER` and `ADMIN` roles; admin-only inventory and order management
 - **Order lifecycle** — orders move through `PENDING → PAID → SHIPPED → DELIVERED` (or `CANCELLED`)
